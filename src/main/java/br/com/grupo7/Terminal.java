@@ -29,7 +29,7 @@ public class Terminal {
     	
     	Professor professor = new Professor();
 
-        String[] disciplinas = {"Logica de programacao","Programacao Java"};
+        String[] disciplinas = {"Lógica de programacao","Programação Java"};
         
 		professor.setNome("GLEYSON SAMPAIO");
 		professor.setDataNascimento(LocalDate.of(1999, 9, 9));
