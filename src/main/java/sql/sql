@@ -1,0 +1,23 @@
+-- Table: public.professor
+
+-- DROP TABLE public.professor;
+
+CREATE TABLE public.professor
+(
+  id integer NOT NULL DEFAULT nextval('professor_id_seq'::regclass),
+  nome character varying(100) NOT NULL,
+  datanascimento date NOT NULL,
+  cargahorario time without time zone NOT NULL,
+  valorhora double precision NOT NULL,
+  estrangeiro boolean NOT NULL,
+  horasdisponiveis integer NOT NULL,
+  biografia character varying(100) NOT NULL,
+  datahoracadastro date NOT NULL,
+  disciplinas character varying(100)[] NOT NULL,
+  CONSTRAINT professor_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.professor
+  OWNER TO postgres;
