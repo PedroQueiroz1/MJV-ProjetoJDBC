@@ -22,7 +22,7 @@
   <li><strong>factory.ConnectionFactory</strong> - Realiza conexão com banco.</li>
   <li><strong>model.Professor</strong> - Entidade professor com atributos de acordo com a tabela do diagrama de classes.</li>
   <li><strong>dao.ProfessorDAO</strong> - Classe de data access object criada para persistência de dados no PostgreSQL, possuindo somente o método salvar (inserção de dados).</li>
-  <li><strong>Terminal.java</strong> - Classe com o método main que executa o método para incluir os dados do professor para o banco de dados.</li>
+  <li><strong>Terminal.java</strong> - Classe com o método main que executa o método para incluir os dados do professor no banco de dados.</li>
 </ol>
   
 ## Diagrama de classes
