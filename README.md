@@ -29,7 +29,7 @@
 <p align="center"><img src="https://github.com/PedroQueiroz1/MJV-ProjetoJDBC/blob/main/images/diagrama.png?raw=true" style="width:30%;height:auto;"></p>
  
 ## Ferramentas utilizadas
-[![My Skills](https://skillicons.dev/icons?i=java,postgres)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=java,postgres,maven)](https://skillicons.dev)
 
 ## Acesso ao projeto
 
