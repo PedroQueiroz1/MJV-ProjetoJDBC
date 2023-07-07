@@ -8,7 +8,7 @@ CREATE TABLE public.professor
   nome character varying(100) NOT NULL,
   datanascimento date NOT NULL,
   cargahorario time without time zone NOT NULL,
-  valorhora double precision NOT NULL,
+  valorhora numeric(6,2) NOT NULL,
   estrangeiro boolean NOT NULL,
   horasdisponiveis integer NOT NULL,
   biografia character varying(100) NOT NULL,
