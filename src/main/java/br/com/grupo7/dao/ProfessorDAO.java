@@ -19,8 +19,8 @@ public class ProfessorDAO {
 	public void salvar(Professor professor) {
 
 		String sqlProfessor = "INSERT INTO professor (nome, dataNascimento, cargaHorario, valorHora,"
-				+ " estrangeiro, horasDisponiveis, biografia, dataHoraCadastro, disciplinas)"
-				+ " VALUES (?,?,?,?,?,?,?,?,?)";
+				+ " estrangeiro, horasDisponiveis, biografia, dataHoraCadastro)"
+				+ " VALUES (?,?,?,?,?,?,?,?)";
 
 		try {
 
@@ -35,10 +35,10 @@ public class ProfessorDAO {
 			pstm.setInt(6, professor.getHorasDisponiveis());
 			pstm.setString(7, professor.getBiografia());
 			pstm.setTimestamp(8, Timestamp.valueOf(professor.getDataHoraCadastro()));
-			pstm.setArray(9, criarArrayDisciplinas(professor, professor.getDisciplinas()));
+		//	pstm.setArray(9, criarArrayDisciplinas(professor, professor.getDisciplinas()));
 
 			pstm.executeUpdate();
-			conn.commit();
+			conn.commit(); // Linha necessária porque decidi setar o AutoCommit(false) no ConnectionFactory
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,13 +56,13 @@ public class ProfessorDAO {
 		}
 	}
 	
-	private Array criarArrayDisciplinas(Professor professor, String[] disciplinas) throws SQLException{
+/*	private Array criarArrayDisciplinas(Professor professor, String[] disciplinas) throws SQLException{
 		
 		disciplinas = professor.getDisciplinas();
 		Array disciplinasArray = conn.createArrayOf("text", disciplinas);
 		
 		return disciplinasArray;
 		
-	}
+	}*/
 	
 }

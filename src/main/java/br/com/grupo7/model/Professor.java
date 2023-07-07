@@ -16,7 +16,7 @@ public class Professor {
 	private String biografia;
 	private LocalDateTime dataHoraCadastro;
 	
-	private String[] disciplinas;
+/*	private String[] disciplinas;
 	
 	
 	public String[] getDisciplinas() {
@@ -24,7 +24,7 @@ public class Professor {
 	}
 	public void setDisciplinas(String[] disciplinas) {
 		this.disciplinas = disciplinas;
-	}
+	}*/
 	public Integer getId() {
 		return id;
 	}

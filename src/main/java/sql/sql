@@ -13,7 +13,6 @@ CREATE TABLE public.professor
   horasdisponiveis integer NOT NULL,
   biografia character varying(100) NOT NULL,
   datahoracadastro date NOT NULL,
-  disciplinas character varying(100)[] NOT NULL,
   CONSTRAINT professor_pkey PRIMARY KEY (id)
 )
 WITH (
