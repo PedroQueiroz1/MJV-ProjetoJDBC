@@ -17,12 +17,13 @@
 
 <p align="justify">
   O projeto foi desenvolvido em conformidade com as especificações requisitadas. <br><br>
-  Projeto Maven JDBC utilizando 4 classes:
+  Projeto Maven JDBC utilizando 5 classes:
 <ol>
   <li><strong>factory.ConnectionFactory</strong> - Realiza conexão com banco.</li>
   <li><strong>model.Professor</strong> - Entidade professor com atributos de acordo com a tabela do diagrama de classes.</li>
-  <li><strong>dao.ProfessorDAO</strong> - Classe de data access object criada para persistência de dados no PostgreSQL, possuindo somente o método salvar (inserção de dados).</li>
-  <li><strong>Terminal.java</strong> - Classe com o método main que executa o método - <em>incluirProfessor()</em> - para incluir os dados do professor no banco de dados.</li>
+  <li><strong>dao.ProfessorDAO</strong> - Classe de data access object com CRUD feito em JDBC.</li>
+   <li><strong>builder.ProfessorBuilder</strong> - Classe criada para evitar o uso do 'toString()'. Para imprimir os atributos de Professor com StringBuilder.</li>
+  <li><strong>Terminal.java</strong> - Classe com o método main que executa os métodos (CRUD) da classe ProfessorDAO.</li>
 </ol>
   
 ## Diagrama de classes
