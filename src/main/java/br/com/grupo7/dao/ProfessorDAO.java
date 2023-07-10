@@ -48,6 +48,38 @@ public class ProfessorDAO {
 		}
 	}
 
+	public void imprimirPorID(Integer id) throws SQLException {
+		
+		
+		String sqlProfessor = "SELECT * FROM professor WHERE id = ?";
+		
+		conn = ConnectionFactory.getConnection();
+		pstm = conn.prepareStatement(sqlProfessor);
+		
+		pstm.setInt(1, id);
+		ResultSet rs = pstm.executeQuery();
+		if (rs.next()) {
+			
+			Professor professor = new Professor();
+			
+			percorrerDados(rs, professor);
+			
+			StringBuilder sb = ProfessorBuilder
+			.construirStringBuilderProfessor(professor.getId(), professor.getNome(),
+					professor.getDataNascimento(), professor.getCargaHorario(),
+					professor.getValorHora(), professor.isEstrangeiro(),
+					professor.getHorasDisponiveis(), professor.getBiografia(),
+					professor.getDataHoraCadastro());
+			
+			System.out.println(sb);
+			
+		} else {
+			System.out.println("Não encontrado");
+		}
+		
+		pstm.execute();
+		conn.commit();
+	}
 	public void imprimirTodos() throws SQLException {
 
 		List<Professor> professores = new ArrayList<Professor>();
@@ -62,15 +94,7 @@ public class ProfessorDAO {
 			
 			Professor professor = new Professor();
 			
-			professor.setId(rs.getInt("id"));
-			professor.setBiografia(rs.getString("biografia"));
-			professor.setCargaHorario(rs.getTime("cargaHorario").toLocalTime());
-			professor.setDataHoraCadastro(rs.getTimestamp("dataHoraCadastro").toLocalDateTime());
-			professor.setDataNascimento(rs.getDate("dataNascimento").toLocalDate());
-			professor.setEstrangeiro(rs.getBoolean("estrangeiro"));
-			professor.setHorasDisponiveis(rs.getInt("horasDisponiveis"));
-			professor.setNome(rs.getString("nome"));
-			professor.setValorHora(rs.getDouble("valorHora"));
+			percorrerDados(rs, professor);
 			
 			professores.add(professor);
 			
@@ -128,6 +152,21 @@ public class ProfessorDAO {
 		conn.commit();
 	}
 
+	
+	public Professor percorrerDados(ResultSet rs, Professor professor) throws SQLException {
+		
+		professor.setId(rs.getInt("id"));
+		professor.setBiografia(rs.getString("biografia"));
+		professor.setCargaHorario(rs.getTime("cargaHorario").toLocalTime());
+		professor.setDataHoraCadastro(rs.getTimestamp("dataHoraCadastro").toLocalDateTime());
+		professor.setDataNascimento(rs.getDate("dataNascimento").toLocalDate());
+		professor.setEstrangeiro(rs.getBoolean("estrangeiro"));
+		professor.setHorasDisponiveis(rs.getInt("horasDisponiveis"));
+		professor.setNome(rs.getString("nome"));
+		professor.setValorHora(rs.getDouble("valorHora"));
+		
+		return professor;
+	}
 	/*
 	 * private Array criarArrayDisciplinas(Professor professor, String[]
 	 * disciplinas) throws SQLException{

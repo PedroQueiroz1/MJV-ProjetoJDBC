@@ -14,6 +14,7 @@ public class Terminal {
 		
 		incluirProfessor();
 		imprimirProfessor();
+		imprimirProfessorPorID(5);
 		atualizarProfessor(3, atualizarTabelaProfessor());
 		excluirProfessor(1);
 	}
@@ -31,6 +32,11 @@ public class Terminal {
 	private static void imprimirProfessor() throws SQLException {
 		ProfessorDAO professorDAO = new ProfessorDAO();
 		professorDAO.imprimirTodos();
+	}
+	
+	private static void imprimirProfessorPorID(Integer id) throws SQLException {
+		ProfessorDAO professorDAO = new ProfessorDAO();
+		professorDAO.imprimirPorID(id);
 	}
 
 	private static void atualizarProfessor(Integer id, Professor professor) throws SQLException {
